@@ -68,8 +68,8 @@ public class StudentManagement {
         s.setId("HHH");
         s.setGroup("BL");
         sm.addStudent(s);
-//        sm.removeStudent("HHH");
-//        sm.printStudent();
-        sm.studentsByGroup();
+        sm.removeStudent("HHH");
+        sm.printStudent();
+//        sm.studentsByGroup();
     }
 }
