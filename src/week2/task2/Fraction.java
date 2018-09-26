@@ -1,11 +1,15 @@
 package week2.task2;
 
 public class Fraction {
+    public static int gcd(int a, int b) {
+        return a == 0 ? b : gcd(b % a, a);
+    }
 
     private int numerator, denominator;
 
     public Fraction(int numerator, int denominator) {
-        if (denominator == 0) System.out.println("Invalid.");
+//        if (denominator == 0) System.out.println("Invalid.");
+//        int numGCD = gcd(numerator, denominator);
         this.numerator = numerator;
         this.denominator = denominator;
     }
@@ -23,7 +27,7 @@ public class Fraction {
     }
 
     public void setDenominator(int denominator) {
-        if (denominator == 0) System.out.println("Invalid.");
+//        if (denominator == 0) System.out.println("Invalid.");
         this.denominator = denominator;
     }
 
@@ -53,6 +57,11 @@ public class Fraction {
         int numerator = this.numerator * other.denominator;
         int denominator = this.denominator * other.numerator;
         return new Fraction(numerator, denominator);
+    }
+
+    public boolean equals(Object object) {
+        Fraction other = (Fraction) object;
+        return this.numerator * other.denominator == this.denominator * other.numerator;
     }
 //
 //    public static void main(String[] args) {
