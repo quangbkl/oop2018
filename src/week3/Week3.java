@@ -11,8 +11,8 @@ public class Week3 {
     public static int minOfArray(int[] array) {
         // Tìm giá trị nhỏ nhất của của một mảng số nguyên (kích thước mảng <= 100 phần tử)
         int reslut = array[0];
-        for (int i = 0, length = array.length; i < length; i++) {
-            if (reslut < array[i]) reslut = array[i];
+        for (int i = 1, length = array.length; i < length; i++) {
+            if (array[i] < reslut) reslut = array[i];
         }
 
         return reslut;
