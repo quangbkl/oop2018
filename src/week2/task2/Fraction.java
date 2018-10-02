@@ -63,11 +63,4 @@ public class Fraction {
         Fraction other = (Fraction) object;
         return this.numerator * other.denominator == this.denominator * other.numerator;
     }
-//
-//    public static void main(String[] args) {
-//        Fraction fraction = new Fraction(1, 0);
-//        Fraction fraction1 = new Fraction(3, 2);
-//        Fraction add = fraction.add(fraction1);
-//        System.out.println(add.getNumerator() + "/" + add.getDenominator());
-//    }
 }
