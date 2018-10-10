@@ -1,6 +1,7 @@
 package week4.task1;
 
 public class Fruit {
+    // Khai báo thuộc tính name, weight, price.
     private String name;
     private Double weight, price;
 
@@ -13,6 +14,7 @@ public class Fruit {
     public Fruit() {
     }
 
+    // Setter, getter.
     public String getName() {
         return name;
     }

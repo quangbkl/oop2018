@@ -1,6 +1,7 @@
 package week4.task1;
 
 public class SanhOrange extends Orange {
+    // Khai báo thuộc tính sweetness cho SanhOrange.
     private String sweetness;
 
     public SanhOrange(String name, Double weight, Double price, String radius, String sweetness) {
@@ -20,6 +21,7 @@ public class SanhOrange extends Orange {
     public SanhOrange() {
     }
 
+    // Setter, getter.
     public String getSweetness() {
         return sweetness;
     }

@@ -1,6 +1,7 @@
 package week4.task2;
 
 public class Square extends Rectangle {
+    // Constructor.
     public Square(String color, boolean filled, double side) {
         super(color, filled, side, side);
     }
@@ -13,6 +14,7 @@ public class Square extends Rectangle {
         super();
     }
 
+    // Setter, getter.
     public double getSide() {
         return this.getHeight();
     }
@@ -30,6 +32,7 @@ public class Square extends Rectangle {
         this.setSide(side);
     }
 
+    // Chuyển đổi các thuộc tính sang String.
     @Override
     public String toString() {
         return "Square{" +
