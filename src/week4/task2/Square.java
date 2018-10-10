@@ -22,6 +22,14 @@ public class Square extends Rectangle {
         this.setWidth(side);
     }
 
+    public void setWidth(double side) {
+        this.setSide(side);
+    }
+
+    public void setHeight(double side) {
+        this.setSide(side);
+    }
+
     @Override
     public String toString() {
         return "Square{" +
