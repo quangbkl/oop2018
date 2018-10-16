@@ -12,6 +12,10 @@ import java.util.ArrayList;
 public class GroundDraw extends JPanel {
     private ArrayList<Shape> shapes;
 
+    public GroundDraw() {
+        this.shapes = new ArrayList<>();
+    }
+
     public ArrayList<Shape> getShapes() {
         return shapes;
     }
@@ -61,15 +65,33 @@ public class GroundDraw extends JPanel {
         Point point1 = triangle.getPoint1();
         Point point2 = triangle.getPoint2();
         Point point3 = triangle.getPoint3();
-        int x[] = {0, 10, 0};
-        int y[] = {0, 0, 10};
+        int x[] = {(int) point1.getX(), (int) point2.getX(), (int) point3.getX()};
+        int y[] = {(int) point1.getY(), (int) point2.getY(), (int) point3.getY()};
 
         Color color = ColorManager.getColor(triangle.getColor());
         g.setColor(color);
         if (triangle.isFilled()) {
             g.fillPolygon(x, y, 3);
         } else {
-//            g.drawRect(x, y, width, height);
+            g.fillPolygon(x, y, 3);
+        }
+    }
+
+    public void paintHexagon(Hexagon hexagon, Graphics g) {
+        int side = (int) hexagon.getSide();
+        Point point = hexagon.getCenter();
+        int x = (int) point.getX();
+        int y = (int) point.getY();
+        double sqrt32 = Math.sqrt(3) / 2;
+        int xPoints[] = {x, (int) (x + sqrt32 * side), (int) (x + sqrt32 * side), x, (int) (x - sqrt32 * side), (int) (x - sqrt32 * side)};
+        int yPoints[] = {y - side, y - side / 2, y + side / 2, y + side, y + side / 2, y - side / 2};
+        Color color = ColorManager.getColor(hexagon.getColor());
+
+        g.setColor(color);
+        if (hexagon.isFilled()) {
+            g.fillPolygon(xPoints, yPoints, 6);
+        } else {
+            g.drawPolygon(xPoints, yPoints, 6);
         }
     }
 
@@ -87,6 +109,10 @@ public class GroundDraw extends JPanel {
             if (shape instanceof Triangle) {
                 Triangle triangle = (Triangle) shape;
                 this.paintTriangle(triangle, g);
+            }
+            if (shape instanceof Hexagon) {
+                Hexagon hexagon = (Hexagon) shape;
+                this.paintHexagon(hexagon, g);
             }
         }
     }

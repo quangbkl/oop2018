@@ -1,5 +1,7 @@
 package week5_6;
 
+import week5_6.graphical.DrawShape;
+
 public class Square extends Rectangle {
     public Square(String color, boolean filled, Point center, double side) {
         super(color, filled, center, side, side);
@@ -26,12 +28,14 @@ public class Square extends Rectangle {
         this.setWidth(side);
     }
 
-    public void setWidth(double side) {
-        this.setSide(side);
-    }
+    public void randomProperties() {
+        super.randomProperties();
+        double randomX = (int) (Math.random() * DrawShape.WIDTH);
+        double randomY = (int) (Math.random() * DrawShape.HEIGHT);
+        double randomSide = (int) (Math.random() * 100);
 
-    public void setHeight(double side) {
-        this.setSide(side);
+        this.setCenter(new Point(randomX, randomY));
+        this.setSide(randomSide);
     }
 
     @Override

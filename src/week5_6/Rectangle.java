@@ -1,5 +1,7 @@
 package week5_6;
 
+import week5_6.graphical.DrawShape;
+
 import java.util.Objects;
 
 public class Rectangle extends Shape {
@@ -63,6 +65,22 @@ public class Rectangle extends Shape {
         // TODO: handle get perimeter.
     }
 
+    public void randomProperties() {
+        super.randomProperties();
+        double randomX = (int) (Math.random() * DrawShape.WIDTH);
+        double randomY = (int) (Math.random() * DrawShape.HEIGHT);
+        double randomWidth = (int) (Math.random() * 100);
+        double randomHeight = (int) (Math.random() * 100);
+
+        this.setCenter(new Point(randomX, randomY));
+        this.setWidth(randomWidth);
+        this.setHeight(randomHeight);
+    }
+
+    public void moving() {
+        this.getCenter().moving(this.getDirection());
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -70,6 +88,7 @@ public class Rectangle extends Shape {
         Rectangle rectangle = (Rectangle) o;
         return Double.compare(rectangle.getWidth(), getWidth()) == 0 &&
                 Double.compare(rectangle.getHeight(), getHeight()) == 0 &&
+                super.equals(o) &&
                 Objects.equals(getCenter(), rectangle.getCenter());
     }
 
@@ -81,7 +100,8 @@ public class Rectangle extends Shape {
     @Override
     public String toString() {
         return "Rectangle{" +
-                "width=" + width +
+                "center=" + center +
+                ", width=" + width +
                 ", height=" + height +
                 '}';
     }

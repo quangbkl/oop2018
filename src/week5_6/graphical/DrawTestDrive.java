@@ -10,7 +10,7 @@ public class DrawTestDrive {
         Circle circle = new Circle(40, new Point(40, 40));
         circle.setColor("green");
         Rectangle rectangle = new Rectangle(new Point(100, 100), 40, 60);
-        Triangle triangle = new Triangle(new Point(0, 0), new Point(40, 30), new Point(30, 20));
+        Triangle triangle = new Triangle(new Point(30, 90), new Point(40, 30), new Point(30, 20));
         ArrayList<Shape> shapes = new ArrayList<>();
         shapes.add(circle);
         shapes.add(rectangle);

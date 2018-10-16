@@ -1,5 +1,7 @@
 package week5_6;
 
+import week5_6.graphical.DrawShape;
+
 import java.util.Objects;
 
 public class Circle extends Shape {
@@ -56,10 +58,25 @@ public class Circle extends Shape {
         // TODO: handle get perimeter.
     }
 
+    public void randomProperties() {
+        super.randomProperties();
+        double randomRadius = (int) (Math.random() * 100);
+        double randomX = (int) (Math.random() * DrawShape.WIDTH);
+        double randomY = (int) (Math.random() * DrawShape.HEIGHT);
+
+        this.setRadius(randomRadius);
+        this.setCenter(new Point(randomX, randomY));
+    }
+
+    public void moving() {
+        this.getCenter().moving(this.getDirection());
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Circle)) return false;
+        if (!super.equals(o)) return false;
         Circle circle = (Circle) o;
         return Double.compare(circle.getRadius(), getRadius()) == 0 &&
                 Objects.equals(getCenter(), circle.getCenter());
@@ -67,13 +84,14 @@ public class Circle extends Shape {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getRadius(), getCenter());
+        return Objects.hash(super.hashCode(), getRadius(), getCenter());
     }
 
     @Override
     public String toString() {
         return "Circle{" +
                 "radius=" + radius +
+                ", center=" + center +
                 '}';
     }
 }

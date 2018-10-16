@@ -17,12 +17,16 @@ public class Layer {
         this.visible = true;
     }
 
-    public ArrayList<Shape> getShapes() {
+    public ArrayList<Shape> getShapesVisible() {
         if (!visible) {
             ArrayList<Shape> result = new ArrayList<>();
             return result;
         }
 
+        return shapes;
+    }
+
+    public ArrayList<Shape> getShapes() {
         return shapes;
     }
 
@@ -87,6 +91,18 @@ public class Layer {
 
         for (Shape shape : shapes) {
             System.out.println(shape.toString());
+        }
+    }
+
+    public void trimShapes() {
+        for (int i = 0; i < shapes.size(); i++) {
+            int count = 0;
+            for (int j = i + 1; j < shapes.size(); j++) {
+                if (shapes.get(i).equals(shapes.get(j))) {
+                    count++;
+                }
+            }
+            if (count > 0) shapes.remove(i--);
         }
     }
 }

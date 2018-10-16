@@ -1,5 +1,7 @@
 package week5_6;
 
+import week5_6.graphical.DrawShape;
+
 import java.util.Objects;
 
 public class Triangle extends Shape {
@@ -54,6 +56,31 @@ public class Triangle extends Shape {
         this.point3 = point3;
     }
 
+    public void randomProperties() {
+        super.randomProperties();
+        double x = (int) (Math.random() * DrawShape.WIDTH);
+        double y = (int) (Math.random() * DrawShape.HEIGHT);
+        double randomX1 = (int) (Math.random() * 200 + x - 100);
+        double randomY1 = (int) (Math.random() * 200 + y - 100);
+        double randomX2 = (int) (Math.random() * 200 + x - 100);
+        double randomY2 = (int) (Math.random() * 200 + y - 100);
+        double randomX3 = (int) (Math.random() * 200 + x - 100);
+        double randomY3 = (int) (Math.random() * 200 + y - 100);
+
+        this.getPoint1().setX(randomX1);
+        this.getPoint1().setY(randomY1);
+        this.getPoint2().setX(randomX2);
+        this.getPoint2().setY(randomY2);
+        this.getPoint3().setX(randomX3);
+        this.getPoint3().setY(randomY3);
+    }
+
+    public void moving() {
+        point1.moving(this.getDirection());
+        point2.moving(this.getDirection());
+        point3.moving(this.getDirection());
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -61,7 +88,8 @@ public class Triangle extends Shape {
         Triangle triangle = (Triangle) o;
         return Objects.equals(getPoint1(), triangle.getPoint1()) &&
                 Objects.equals(getPoint2(), triangle.getPoint2()) &&
-                Objects.equals(getPoint3(), triangle.getPoint3());
+                Objects.equals(getPoint3(), triangle.getPoint3()) &&
+                super.equals(o);
     }
 
     @Override
