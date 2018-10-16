@@ -2,14 +2,6 @@ package week5_6;
 
 public class Main {
     public static void main(String[] args) {
-//        JFrame jFrame = new JFrame();
-//        jFrame.setTitle("Draw Circle.");
-//        jFrame.setSize(720, 480);
-//        jFrame.getContentPane().add(new DrawTriangle());
-//        jFrame.setVisible(true);
-//        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        jFrame.setResizable(false);
-
         Diagram diagram = new Diagram();
         Layer layer1 = new Layer();
         Layer layer2 = new Layer();
