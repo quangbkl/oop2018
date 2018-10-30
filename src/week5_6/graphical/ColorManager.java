@@ -2,13 +2,16 @@ package week5_6.graphical;
 
 import java.awt.*;
 
+// Quản lý màu.
 public class ColorManager {
+    // Random color.
     public static String randomColor() {
         String[] colors = {"Black", "White", "Red", "Lime", "Blue", "Yellow", "Cyan", "Teal", "Navy", "Aqua", "Fuchsia", "Purple", "Magenta", "Silver", "Gray", "Maroon", "Olive", "Green"};
         int index = (int) (Math.random() * colors.length);
         return colors[index];
     }
 
+    // Chuyển string sang Color.
     public static Color getColor(String nameColor) {
         if (nameColor.equalsIgnoreCase("Black")) return new Color(0, 0, 0);
         if (nameColor.equalsIgnoreCase("White")) return new Color(255, 255, 255);

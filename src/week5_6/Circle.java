@@ -68,6 +68,10 @@ public class Circle extends Shape {
         this.setCenter(new Point(randomX, randomY));
     }
 
+    public void collision() {
+
+    }
+
     public void moving() {
         this.getCenter().moving(this.getDirection());
     }

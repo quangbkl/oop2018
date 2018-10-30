@@ -54,7 +54,7 @@ public class Main {
         diagram.addLayer(layer1);
         diagram.addLayer(layer2);
         diagram.addLayer(layer3);
-//        diagram.removeTriangle();
+        diagram.removeTriangle();
 //        layer1.setVisible(false);
 //        layer1.removeRectangle();
 //        layer1.addShape(circle1);
@@ -63,16 +63,16 @@ public class Main {
 //        layer1.trimShapes();
 //        diagram.customLayer();
 //        diagram.printLayers();
-        while (true) {
-            diagram.play();
-//            diagram.printLayers();
-
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ex) {
-                Thread.currentThread().interrupt();
-            }
-        }
+//        while (true) {
+//            diagram.play();
+////            diagram.printLayers();
+//
+//            try {
+//                Thread.sleep(100);
+//            } catch (InterruptedException ex) {
+//                Thread.currentThread().interrupt();
+//            }
+//        }
 
     }
 }
