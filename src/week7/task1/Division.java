@@ -27,8 +27,13 @@ public class Division extends BinaryExpression {
     }
 
     @Override
-    public int evaluate() throws ArithmeticException {
-        if (right.evaluate() == 0) throw new ArithmeticException();
-        return left.evaluate() / right.evaluate();
+    public int evaluate() {
+        try {
+            return left.evaluate() / right.evaluate();
+        } catch (ArithmeticException e) {
+            System.out.println("Lỗi chia cho 0");
+        }
+
+        return 0;
     }
 }
