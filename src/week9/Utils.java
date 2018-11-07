@@ -3,7 +3,8 @@ package week9;
 import java.io.*;
 
 public class Utils {
-    public static String readContentFromFile(String path) {
+
+    /*public static String readContentFromFile(String path) {
         String result = "";
 
         try {
@@ -23,7 +24,7 @@ public class Utils {
         }
 
         return result;
-    }
+    }*/
 
     public static void writeContentToFile(String path, String content, boolean append) {
         try {

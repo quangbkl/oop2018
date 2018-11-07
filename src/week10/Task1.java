@@ -33,16 +33,17 @@ public class Task1 {
                     isComment = true;
                     code += temp.substring(0, temp.indexOf("/*")) + "\n";
                 }
-                if (temp.contains("*/")) {
-                    isComment = false;
-                    code += temp.substring(temp.indexOf("*/") + 2) + "\n";
-                }
 
                 int indexComment = temp.indexOf("//");
                 if (indexComment != -1) {
                     code += temp.substring(0, indexComment) + "\n";
                 } else {
                     if (!isComment) code += temp + "\n";
+                }
+
+                if (temp.contains("*/")) {
+                    isComment = false;
+                    code += temp.substring(temp.indexOf("*/") + 2) + "\n";
                 }
             }
         } catch (FileNotFoundException e) {
