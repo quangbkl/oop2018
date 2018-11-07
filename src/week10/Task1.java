@@ -1,24 +1,25 @@
 package week10;
 
-import jdk.nashorn.internal.runtime.regexp.joni.Regex;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Task1 {
     public String getCodeFunction(String code, int startFunction) {
-        int pos = code.indexOf("{", startFunction);
-        int deviation = pos != -1 ? 1 : 0;
-        if (deviation == 0) return "";
+        int countOpen = 0;
+        int countClose = 0;
+        int length = code.length();
 
-        while (deviation != 0) {
-            pos = Math.min(code.indexOf("{", pos), code.indexOf("}", pos));
-            if (code.charAt(pos) == '{') deviation += 1;
-            else deviation -= 1;
+        for (int i = startFunction; i < length; i++) {
+            if (code.charAt(i) == '{') countOpen++;
+            if (code.charAt(i) == '}') countClose++;
+
+            if (countOpen == countClose && countOpen != 0) {
+                return code.substring(startFunction, i + 1);
+            }
         }
 
-        return code.substring(startFunction, pos);
+        return "";
     }
 
     public String getSourceCode(File path) {
@@ -34,7 +35,7 @@ public class Task1 {
                 }
                 if (temp.contains("*/")) {
                     isComment = false;
-                    code += temp.substring(temp.indexOf("*/")) + "\n";
+                    code += temp.substring(temp.indexOf("*/") + 2) + "\n";
                 }
 
                 int indexComment = temp.indexOf("//");
@@ -56,6 +57,14 @@ public class Task1 {
     public List<String> getAllFunctions(File path) {
         List<String> result = new ArrayList<>();
 
+        String code = getSourceCode(path);
+        int pos = code.indexOf("public static");
+
+        while (pos != -1) {
+            String func = getCodeFunction(code, pos);
+            result.add(func);
+            pos = code.indexOf("public static", pos + 1);
+        }
 
         return result;
     }
